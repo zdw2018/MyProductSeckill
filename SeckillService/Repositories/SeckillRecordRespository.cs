@@ -1,4 +1,5 @@
-﻿using SeckillMicroService.Models;
+﻿using SeckillMicroService.Context;
+using SeckillMicroService.Models;
 using SeckillRecordMicroService.Repositories;
 using System;
 using System.Collections.Generic;
@@ -7,36 +8,45 @@ using System.Threading.Tasks;
 
 namespace SeckillMicroService.Repositories
 {
-    public class SeckillRecordRespository : ISeckillRecordRecordRespository
+    public class SeckillRecordService : ISeckillRecordRecordRespository
     {
+        private readonly SeckillContext _seckillContext;
+        public SeckillRecordService(SeckillContext seckillContext)
+        {
+            this._seckillContext = seckillContext;
+        }
         public void Create(SeckillRecord seckillRecord)
         {
-            throw new NotImplementedException();
+            _seckillContext.Set<SeckillRecord>().Add(seckillRecord);
+            _seckillContext.SaveChanges();
         }
 
         public void Delete(SeckillRecord seckillRecord)
         {
-            throw new NotImplementedException();
+            _seckillContext.Set<SeckillRecord>().Remove(seckillRecord);
+            _seckillContext.SaveChanges();
         }
 
         public SeckillRecord GetSeckillRecordById(int Id)
         {
-            throw new NotImplementedException();
+           return _seckillContext.Set<SeckillRecord>().Find(Id);
+           
         }
 
         public IEnumerable<SeckillRecord> GetSeckillRecords()
         {
-            throw new NotImplementedException();
+            return _seckillContext.Set<SeckillRecord>().ToList();
         }
 
         public bool SeckillRecordExists(int Id)
         {
-            throw new NotImplementedException();
+            return _seckillContext.Set<SeckillRecord>().Any(x=>x.Id==Id);
         }
 
         public void Update(SeckillRecord seckillRecord)
         {
-            throw new NotImplementedException();
+            _seckillContext.Set<SeckillRecord>().Remove(seckillRecord);
+            _seckillContext.SaveChanges();
         }
     }
 }

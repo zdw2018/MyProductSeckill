@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SeckillMicroService.Repositories
 {
-    public interface ISeckillRepository
+    public interface ISeckillService
     {
         IEnumerable<Seckill> GetSeckills();
         IEnumerable<Seckill> GetSeckills(Seckill seckill);

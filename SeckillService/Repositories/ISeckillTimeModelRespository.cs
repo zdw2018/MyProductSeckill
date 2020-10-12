@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SeckillMicroService.Repositories
 {
-    public interface ISeckillTimeModelRespository
+    public interface ISeckillTimeModelService
     {
         IEnumerable<SeckillTimeModel> GetSeckillTimeModels();
         SeckillTimeModel GetSeckillTimeModelById(int Id);
