@@ -22,27 +22,32 @@ namespace OrderMicroService.Services
 
         public void Delete(OrderItem orderItem)
         {
-            throw new NotImplementedException();
+            _orderItemRespository.Delete(orderItem);
         }
 
         public OrderItem GetOrderItemById(int Id)
         {
-            throw new NotImplementedException();
+            return _orderItemRespository.GetOrderItemById(Id);
+        }
+
+        public IEnumerable<OrderItem> GetOrderItems()
+        {
+            return _orderItemRespository.GetOrderItems();
         }
 
         public IEnumerable<OrderItem> GetOrderItemsByOrderSn(int OrderSn)
         {
-            throw new NotImplementedException();
+            return _orderItemRespository.GetOrderItemsByOrderSn(OrderSn);
         }
 
         public bool OrderItemExists(int Id)
         {
-            throw new NotImplementedException();
+            return _orderItemRespository.OrderItemExists(Id);
         }
 
         public void Update(OrderItem orderItem)
         {
-            throw new NotImplementedException();
+            _orderItemRespository.Update(orderItem);
         }
     }
 }

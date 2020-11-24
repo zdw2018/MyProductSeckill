@@ -11,6 +11,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using UserMicroService.Context;
 using Microsoft.EntityFrameworkCore;
+using UserMicroService.Services;
+using UserMicroService.Repositories;
 
 namespace UserMicroService
 {
@@ -32,6 +34,10 @@ namespace UserMicroService
                 optionsBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")); 
 
             });
+            //2.注册用户Service
+            services.AddScoped<IUserService, UserService>();
+            //3.注册用户仓储
+            services.AddScoped<IUserRespository, UserRespository>();
 
             services.AddControllers();
         }

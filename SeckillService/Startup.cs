@@ -11,6 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SeckillMicroService.Context;
+using SeckillMicroService.Repositories;
+using SeckillMicroService.Services;
+using SeckillRecordMicroService.Repositories;
 
 namespace SeckillMicroService
 {
@@ -31,6 +34,14 @@ namespace SeckillMicroService
             {
                 optionBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+            //2.◊¢≤·√Î…±service
+            services.AddScoped<ISeckillService, SeckillService>();
+            services.AddScoped<ISeckillTimeModelService, SeckillTimeModelService>();
+            services.AddScoped<ISeckillRecordService, SeckillRecordService>();
+            //2.◊¢≤·√Î…±≤÷¥¢
+            services.AddScoped<ISeckillRepository, SeckillRepository>();
+            services.AddScoped<ISeckillRecordRecordRespository, SeckillRecordRespository>();
+            services.AddScoped<ISeckillTimeModelRespository, SeckillTimeModelRespository>();
             services.AddControllers();
         }
 

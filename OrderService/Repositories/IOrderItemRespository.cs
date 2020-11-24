@@ -8,6 +8,7 @@ namespace OrderMicroService.Repositories
 {
     public interface IOrderItemRespository
     {
+        IEnumerable<OrderItem> GetOrderItems();
         void Create(OrderItem orderItem);
         void Delete(OrderItem orderItem);
         void Update(OrderItem orderItem);

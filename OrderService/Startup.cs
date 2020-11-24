@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using OrderMicroService.Context;
+using OrderMicroService.Repositories;
+using OrderMicroService.Services;
 
 namespace OrderMicroService
 {
@@ -31,6 +33,16 @@ namespace OrderMicroService
             {
                 optionBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+            //2.×¢²á¶©µ¥Service
+            services.AddScoped<IOrderItemService, OrderItemService>();
+            services.AddScoped<IOrderService, OrderService>();
+            //3.×¢²á¶©µ¥²Ö´¢
+            services.AddScoped<IOrderItemRespository, OrderItemRespository>();
+            services.AddScoped<IOrderRespository, OrderRespository>();
+
+
+
+
             services.AddControllers();
         }
 
@@ -50,6 +62,7 @@ namespace OrderMicroService
             {
                 endpoints.MapControllers();
             });
+
         }
     }
 }

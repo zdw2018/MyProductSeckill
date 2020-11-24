@@ -33,6 +33,11 @@ namespace OrderMicroService.Repositories
             return _orderDbcontext.Set<OrderItem>().First(X => X.Id == Id);
         }
 
+        public IEnumerable<OrderItem> GetOrderItems()
+        {
+            return _orderDbcontext.OrderItem.ToList();
+        }
+
         public IEnumerable<OrderItem> GetOrderItemsByOrderSn(int OrderSn)
         {
             return _orderDbcontext.Set<OrderItem>().Where(x => x.OrderSn == OrderSn);
@@ -40,7 +45,7 @@ namespace OrderMicroService.Repositories
 
         public bool OrderItemExists(int Id)
         {
-            return _orderDbcontext.Set<OrderItem>().Any(X=>X.Id==Id);
+            return _orderDbcontext.Set<OrderItem>().Any(X => X.Id == Id);
         }
 
         public void Update(OrderItem orderItem)

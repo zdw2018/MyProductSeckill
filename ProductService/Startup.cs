@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using ProductMicroService.Context;
+using ProductMicroService.Repositories;
+using ProductMicroService.Services;
 
 namespace ProductMicroService
 {
@@ -31,6 +33,12 @@ namespace ProductMicroService
             {
                 optionsBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+            //2.×¢²á¶©µ¥Service
+            services.AddScoped<IProductImageService, ProductImageService>();
+            services.AddScoped<IProductService, ProductService>();
+            //3.×¢²á¶©µ¥²Ö´¢            
+            services.AddScoped<IProductImageRespository, ProductImageRespository>();
+            services.AddScoped<IProductRespository, ProductRespository>();
             services.AddControllers();
         }
 

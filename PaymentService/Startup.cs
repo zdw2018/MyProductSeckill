@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using PaymentMicroService.Context;
+using PaymentMicroService.Repositories;
+using PaymentMicroService.Services;
 
 namespace PaymentMicroService
 {
@@ -31,6 +33,10 @@ namespace PaymentMicroService
             {
                 optionBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+            //2.×¢²áÖ§¸¶Service
+            services.AddScoped<IPaymentService, PaymentService>();         
+            //3.×¢²áÖ§¸¶²Ö´¢            
+            services.AddScoped<IPaymentRespository, PaymentRespository>();
             services.AddControllers();
         }
 

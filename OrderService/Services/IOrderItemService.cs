@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace OrderMicroService.Services
 {
-   public interface IOrderItemService
+    public interface IOrderItemService
     {
+        IEnumerable<OrderItem> GetOrderItems();
         void Create(OrderItem orderItem);
         void Delete(OrderItem orderItem);
         void Update(OrderItem orderItem);

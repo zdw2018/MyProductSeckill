@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace SeckillMicroService.Repositories
 {
-    public class SeckillRecordService : ISeckillRecordRecordRespository
+    public class SeckillRecordRespository : ISeckillRecordRecordRespository
     {
         private readonly SeckillContext _seckillContext;
-        public SeckillRecordService(SeckillContext seckillContext)
+        public SeckillRecordRespository(SeckillContext seckillContext)
         {
             this._seckillContext = seckillContext;
         }

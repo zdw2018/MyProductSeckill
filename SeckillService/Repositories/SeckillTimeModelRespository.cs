@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 namespace SeckillMicroService.Repositories
 {
    
-    public class SeckillTimeModelService: ISeckillTimeModelService
+    public class SeckillTimeModelRespository : ISeckillTimeModelRespository
     {
         private readonly SeckillContext _seckillContext;
-        public SeckillTimeModelService(SeckillContext seckillContext)
+        public SeckillTimeModelRespository(SeckillContext seckillContext)
         {
             this._seckillContext = seckillContext;
         }
