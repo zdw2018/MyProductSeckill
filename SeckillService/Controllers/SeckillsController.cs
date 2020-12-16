@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CommonCoreService.Exceptions;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SeckillMicroService.Models;
+using SeckillMicroService.Pos;
 using SeckillMicroService.Services;
 using System;
 using System.Collections.Generic;
@@ -61,14 +64,65 @@ namespace SeckillMicroService.Controllers
 
         // PUT api/<SeckillsController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult PutSeckill(int id, Seckill seckill)
         {
-        }
+            if (id != seckill.Id)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                _seckillService.Update(seckill);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
 
+                if (!SeckillExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return NoContent();
+        }
+        [NonAction]
+        public IActionResult SetProductStock(SeckillPo seckillPo)
+        {
+            //1.查询秒杀库存
+            Seckill seckill = _seckillService.GetSeckillByProductId(seckillPo.ProductId);
+            //2.判断秒杀库存是否完成
+            if (seckill.SeckillStock <= 0)
+            {
+                throw new BizException("秒杀库存完了");
+            }
+            if (seckill.SeckillStock <= seckillPo.ProductCount)
+            {
+                throw new BizException($"秒杀库存不足{seckillPo.ProductCount}个");
+            }
+            //3.扣减库存
+            seckill.SeckillStock -= seckillPo.ProductCount;
+            //4.更新秒杀库存
+            _seckillService.Update(seckill);
+            return Ok("更新库存成功");
+        }
         // DELETE api/<SeckillsController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult<Seckill> DeleteSeckill(int id)
         {
+            var seckill = _seckillService.GetSeckillById(id);
+            if (seckill == null)
+            {
+                return NotFound();
+            }
+            _seckillService.Delete(seckill);
+            return seckill;
+        }
+        private bool SeckillExists(int id)
+        {
+            return _seckillService.SeckillExists(id);
         }
     }
 }

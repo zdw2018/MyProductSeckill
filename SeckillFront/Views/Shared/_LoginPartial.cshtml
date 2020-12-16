@@ -1,0 +1,32 @@
+﻿<!--已经登录-->
+<ul class="navbar-nav" id="userLogin">
+    <li class="nav-item">
+        <a id="manage" class="nav-link text-dark" title="Manage"></a>
+    </li>
+    <li class="nav-item">
+        <button id="logout" type="button" class="nav-link btn btn-link text-dark" onclick="logout()">注销</button>
+    </li>
+</ul>
+<!--未登录-->
+<ul class="navbar-nav" id="noneLogin">
+    <li class="nav-item" id="userbox">
+        <button id="login" type="button" class="nav-link btn btn-link text-dark" onclick="loginbox()">登录</button>
+    </li>
+    <li class="nav-item">
+        <button id="register" type="button" class="nav-link btn btn-link text-dark" onclick="registerbox()">注册</button>
+    </li>
+</ul>
+<!--登录弹框-->
+<div id="loginbox">
+    <div class="loginitem"><input type="text" class="form-text" id="username" placeholder="请输入用户名" /></div>
+    <div class="loginitem"><input type="password" class="form-text" id="pwd" placeholder="请输入密码" /></div>
+    <div class="loginitem"><a onclick="userLogin()" href="javascript:;">登录</a></div>
+</div>
+<!--注册弹框-->
+<div id="registerbox">
+    <div class="loginitem"><input type="text" class="form-text" id="txtusername" placeholder="请输入用户名" /></div>
+    <div class="loginitem"><input type="password" class="form-text" id="txtpwd" placeholder="请输入密码" /></div>
+    <div class="loginitem"><input type="text" class="form-text" id="txtqq" placeholder="请输入QQ" /></div>
+    <div class="loginitem"><input type="tel" class="form-text" id="txtphone" placeholder="请输入手机号密码" /></div>
+    <div class="loginitem"><a href="javascrpt:;" onclick="regLogin()">注册</a></div>
+</div>

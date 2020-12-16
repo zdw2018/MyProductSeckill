@@ -1,47 +1,95 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SeckillMicroService.Services;
+using SeckillMicroService.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace SeckillMicroService.Controllers
 {
-    [Route("api/[controller]")]
+    //秒杀服务记录控制器
+    [Route("Seckill/{SeckillId}/SeckillRecords")]
     [ApiController]
     public class SeckillRecordController : ControllerBase
     {
-        // GET: api/<SeckillRecordController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly ISeckillRecordService _seckillRecordService;
+
+        public SeckillRecordController(ISeckillRecordService seckillRecordService)
         {
-            return new string[] { "value1", "value2" };
+            this._seckillRecordService = seckillRecordService;
         }
 
-        // GET api/<SeckillRecordController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet]
+        public ActionResult<IEnumerable<SeckillRecord>> GetSeckillRecords()
         {
-            return "value";
+            return _seckillRecordService.GetSeckillRecords().ToList();
+        }
+
+
+        [HttpGet("{id}")]
+        public ActionResult<SeckillRecord> GetSeckillRecord(int id)
+        {
+            var record = _seckillRecordService.GetSeckillRecordById(id);
+            if (record == null)
+            {
+                return NotFound();
+            }
+            return record;
         }
 
         // POST api/<SeckillRecordController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult<SeckillRecord> PostSeckillRecord(SeckillRecord seckillRecord)
         {
+            _seckillRecordService.Create(seckillRecord);
+            return CreatedAtAction("GetSeckillRecord", new { id = seckillRecord.Id }, seckillRecord);
         }
 
         // PUT api/<SeckillRecordController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult PutSeckillRecord(int id, SeckillRecord seckillRecord)
         {
+            if (id != seckillRecord.Id)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                _seckillRecordService.Update(seckillRecord);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!SeckillRecordExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return NoContent();
         }
 
         // DELETE api/<SeckillRecordController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult<SeckillRecord> DeleteSeckillRecord(int id)
         {
+            var SeckillRecord = _seckillRecordService.GetSeckillRecordById(id);
+            if (SeckillRecord == null)
+            {
+                return NotFound();
+            }
+            _seckillRecordService.Delete(SeckillRecord);
+            return SeckillRecord;
+        }
+        private bool SeckillRecordExists(int id)
+        {
+            return _seckillRecordService.SeckillRecordExists(id);
         }
     }
 }

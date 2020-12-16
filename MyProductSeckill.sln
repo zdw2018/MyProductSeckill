@@ -11,21 +11,32 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Front", "Front", "{364826AA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Middles", "Middles", "{CF586033-E479-463B-B7C8-DAC947FB818F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeckillFront", "SeckillFront\SeckillFront.csproj", "{094CDCC8-3BA6-4FC7-B60F-99EDE8D48065}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeckillFront", "SeckillFront\SeckillFront.csproj", "{094CDCC8-3BA6-4FC7-B60F-99EDE8D48065}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserMicroService", "UserService\UserMicroService.csproj", "{89CB2CF9-1E76-458B-9AD0-26DF4E960C6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMicroService", "UserService\UserMicroService.csproj", "{89CB2CF9-1E76-458B-9AD0-26DF4E960C6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentMicroService", "PaymentService\PaymentMicroService.csproj", "{32DFB517-C829-4C2C-993B-E937C92FEF60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentMicroService", "PaymentService\PaymentMicroService.csproj", "{32DFB517-C829-4C2C-993B-E937C92FEF60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductMicroService", "ProductService\ProductMicroService.csproj", "{BB4DD102-919F-494E-9BBD-E3495ACDAFDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductMicroService", "ProductService\ProductMicroService.csproj", "{BB4DD102-919F-494E-9BBD-E3495ACDAFDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderMicroService", "OrderService\OrderMicroService.csproj", "{25DD8594-FBCF-4FD8-8A4E-41FF2BAF8185}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderMicroService", "OrderService\OrderMicroService.csproj", "{25DD8594-FBCF-4FD8-8A4E-41FF2BAF8185}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeckillMicroService", "SeckillService\SeckillMicroService.csproj", "{6D6E0942-743D-4573-BD10-1FB0A0CB6849}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeckillMicroService", "SeckillService\SeckillMicroService.csproj", "{6D6E0942-743D-4573-BD10-1FB0A0CB6849}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeckillCoreService", "SeckillCoreService\SeckillCoreService.csproj", "{E70EE2C0-BAD1-4D44-AEAA-D57A485E6E8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeckillCoreService", "SeckillCoreService\SeckillCoreService.csproj", "{E70EE2C0-BAD1-4D44-AEAA-D57A485E6E8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonCoreService", "CommonCoreService\CommonCoreService.csproj", "{DCC3C7E8-4747-43A6-8D8E-574EDE9207AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonCoreService", "CommonCoreService\CommonCoreService.csproj", "{DCC3C7E8-4747-43A6-8D8E-574EDE9207AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{A3F0F301-5D8F-45D4-8815-9695A3F2D916}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyProductSeckill.Core", "MyProductSeckill.Core\MyProductSeckill.Core.csproj", "{74E8FFD0-1B56-46EB-ACB7-F1F12B3FC920}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeckillAggregateService", "SeckillAggregateService\SeckillAggregateService.csproj", "{181B4456-EBCB-4216-BF21-6D3406DA11D4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F5361CDB-160D-4402-902C-A2C5411A29D5}"
+	ProjectSection(SolutionItems) = preProject
+		端口配置.txt = 端口配置.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +76,14 @@ Global
 		{DCC3C7E8-4747-43A6-8D8E-574EDE9207AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCC3C7E8-4747-43A6-8D8E-574EDE9207AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCC3C7E8-4747-43A6-8D8E-574EDE9207AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74E8FFD0-1B56-46EB-ACB7-F1F12B3FC920}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74E8FFD0-1B56-46EB-ACB7-F1F12B3FC920}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74E8FFD0-1B56-46EB-ACB7-F1F12B3FC920}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74E8FFD0-1B56-46EB-ACB7-F1F12B3FC920}.Release|Any CPU.Build.0 = Release|Any CPU
+		{181B4456-EBCB-4216-BF21-6D3406DA11D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{181B4456-EBCB-4216-BF21-6D3406DA11D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{181B4456-EBCB-4216-BF21-6D3406DA11D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{181B4456-EBCB-4216-BF21-6D3406DA11D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,6 +100,9 @@ Global
 		{6D6E0942-743D-4573-BD10-1FB0A0CB6849} = {CF586033-E479-463B-B7C8-DAC947FB818F}
 		{E70EE2C0-BAD1-4D44-AEAA-D57A485E6E8A} = {CF586033-E479-463B-B7C8-DAC947FB818F}
 		{DCC3C7E8-4747-43A6-8D8E-574EDE9207AD} = {CF586033-E479-463B-B7C8-DAC947FB818F}
+		{A3F0F301-5D8F-45D4-8815-9695A3F2D916} = {D4E73959-552B-4AAB-AF69-9A1D83287E8E}
+		{74E8FFD0-1B56-46EB-ACB7-F1F12B3FC920} = {A3F0F301-5D8F-45D4-8815-9695A3F2D916}
+		{181B4456-EBCB-4216-BF21-6D3406DA11D4} = {CF586033-E479-463B-B7C8-DAC947FB818F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B246FDAD-B9F1-418F-A180-D396CBE0B866}

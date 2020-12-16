@@ -6,13 +6,13 @@ using UserMicroService.Models;
 
 namespace UserMicroService.Services
 {
-   public interface IUserService
+    public interface IUserService
     {
         IEnumerable<User> GetUsers();
         bool UserExists(int Id);
         bool UserNameExists(string UserName);
         User GetUserById(int Id);
-        User GetUser(string UserNaem);
+        User GetUser(string UserName);
         void Create(User User);
         void Update(User User);
         void Delete(User User);

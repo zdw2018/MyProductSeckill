@@ -18,6 +18,6 @@ namespace SeckillCoreService.Registry
         /// 服务撤销
         /// </summary>
         /// <param name="serviceNode"></param>
-        void DeRegister(ServiceRegistryConfig serviceNode)；
+        void DeRegister(ServiceRegistryConfig serviceNode);
     }
 }
