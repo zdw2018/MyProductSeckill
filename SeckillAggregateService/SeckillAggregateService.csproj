@@ -4,5 +4,14 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Dtos\" />
+    <Folder Include="Pos\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyProductSeckill.Core\MyProductSeckill.Core.csproj" />
+  </ItemGroup>
+
 
 </Project>
