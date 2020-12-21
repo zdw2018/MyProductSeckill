@@ -1,17 +1,16 @@
-﻿using System;
+﻿using SeckillAggregateService.Models.OrderService;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SeckillAggregateService.Models.OrderService
+namespace SeckillAggregateService.Dtos.OrderService
 {
     /// <summary>
-    /// 订单模型
+    /// 预订单模型
     /// </summary>
-    public class Order
+    public class OrderDto
     {
-        [Key]
         public int Id { get; set; }
         public string OrderType { get; set; }//订单类型
         public string OrderFlag { get; set; }//订单标志

@@ -5,11 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Dtos\" />
-    <Folder Include="Pos\" />
+    <Folder Include="Pos\SeckillService\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="IdentityServer4" Version="4.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CommonCoreService\CommonCoreService.csproj" />
     <ProjectReference Include="..\MyProductSeckill.Core\MyProductSeckill.Core.csproj" />
   </ItemGroup>
 

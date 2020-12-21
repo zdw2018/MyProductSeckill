@@ -70,7 +70,7 @@ function userLogin() {
     }
     else {
         //根据用户信息检测账号密码[聚合微服务地址]
-        $.post("http://localhost:5000", { "UserName": username, "PassWord": pwd }, function (result) {
+        $.post("https://localhost:5006/api/User/Login", { "UserName": username, "PassWord": pwd }, function (result) {
             if (result.ErrorNo == "0") {
                 // 1、用户信息
                 var ResultDic = result.ResultDic;
