@@ -13,6 +13,7 @@ using UserMicroService.Context;
 using Microsoft.EntityFrameworkCore;
 using UserMicroService.Services;
 using UserMicroService.Repositories;
+using MyProductSeckill.Core.Middleware.Extentions;
 
 namespace UserMicroService
 {
@@ -31,14 +32,15 @@ namespace UserMicroService
             ///1.Ioc容器注入Dcontext
             services.AddDbContext<UserContext>(optionsBuilder =>
             {
-                optionsBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")); 
+                optionsBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
 
             });
             //2.注册用户Service
             services.AddScoped<IUserService, UserService>();
             //3.注册用户仓储
             services.AddScoped<IUserRespository, UserRespository>();
-
+            //中台组件
+            services.AddMiddleware();
             services.AddControllers();
         }
 

@@ -56,7 +56,9 @@ namespace MyProductSeckill.Core.Pollys.Extentions
 
                  Console.WriteLine($"服务{name}断路器半开启（时间控制，自动开启）");
              }))
+             //3.重试策略
              .AddPolicyHandler(Policy<HttpResponseMessage>.Handle<Exception>().RetryAsync(options.RetryCount))
+             //4.超时策略
              .AddPolicyHandler(Policy.TimeoutAsync<HttpResponseMessage>(TimeSpan.FromSeconds(options.TimeOut)));
             return services;
 

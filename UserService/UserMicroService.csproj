@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CommonCoreService\CommonCoreService.csproj" />
+    <ProjectReference Include="..\MyProductSeckill.Core\MyProductSeckill.Core.csproj" />
   </ItemGroup>
 
 
